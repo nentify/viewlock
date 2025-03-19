@@ -1,7 +1,6 @@
 plugins {
 	id 'fabric-loom' version '1.10-SNAPSHOT'
 	id 'maven-publish'
-	id "org.jetbrains.kotlin.jvm" version "2.1.10"
 }
 
 version = project.mod_version
@@ -23,7 +22,7 @@ loom {
 	splitEnvironmentSourceSets()
 
 	mods {
-		"view-lock" {
+		"viewlock" {
 			sourceSet sourceSets.main
 			sourceSet sourceSets.client
 		}
@@ -34,12 +33,12 @@ loom {
 dependencies {
 	// To change the versions see the gradle.properties file
 	minecraft "net.minecraft:minecraft:${project.minecraft_version}"
-	mappings loom.officialMojangMappings()
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
 	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-	modImplementation "net.fabricmc:fabric-language-kotlin:${project.fabric_kotlin_version}"
+	
 }
 
 processResources {
@@ -52,12 +51,6 @@ processResources {
 
 tasks.withType(JavaCompile).configureEach {
 	it.options.release = 21
-}
-
-tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
-	kotlinOptions {
-		jvmTarget = 21
-	}
 }
 
 java {

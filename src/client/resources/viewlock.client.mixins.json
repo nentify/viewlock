@@ -3,7 +3,7 @@
 	"package": "city.blockbound.mixin.client",
 	"compatibilityLevel": "JAVA_21",
 	"client": [
-		"MouseHandlerMixin"
+		"MouseMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
