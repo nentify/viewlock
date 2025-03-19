@@ -1,0 +1,37 @@
+{
+	"schemaVersion": 1,
+	"id": "viewlock",
+	"version": "${version}",
+	"name": "View Lock",
+	"description": "client mod to lock your view and free your mouse, allowing clicking the game without it taking control of the mouse for better multitasking",
+	"authors": [
+		"nentify"
+	],
+	"contact": {
+		"sources": "https://github.com/nentify/viewlock"
+	},
+	"license": "MIT",
+	"icon": "assets/viewlock/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"client": [
+			{
+				"value": "city.blockbound.ViewLockClient",
+				"adapter": "kotlin"
+			}
+		]
+	},
+	"mixins": [
+		{
+			"config": "viewlock.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.10",
+		"minecraft": "~1.21.4",
+		"java": ">=21",
+		"fabric-api": "*",
+		"fabric-language-kotlin": "*"
+	}
+}
